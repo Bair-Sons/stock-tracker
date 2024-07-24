@@ -1,6 +1,6 @@
 importScripts('ExtPay.js')
 
-var extpay = ExtPay('stock-tracker'); 
+const extpay = ExtPay('stock-tracker')
 extpay.startBackground(); 
 
 extpay.getUser().then(user => {

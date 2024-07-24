@@ -1,9 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Stock Prices",
-  "short_name": "sp2",
   "version": "1.0",
-  "author": "nbair",
   "background": {
     "service_worker": "background.js"
   },
@@ -22,5 +20,5 @@
     "default_popup": "base.html",
     "default_icon": "icon.png"
   },
-  "permissions": ["activeTab", "storage"]
+  "permissions": ["storage"]
 }
