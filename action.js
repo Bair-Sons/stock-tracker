@@ -1,43 +1,18 @@
-const extpay = ExtPay("stock-tracker");
-
 document.addEventListener("DOMContentLoaded", onPageLoad);
 
 function onPageLoad() {
-  extpay
-    .getUser()
-    .then((user) => {
-      user.paid = false;
-
-      if (user.paid) {
-        showContent();
-        const trackButton = document.getElementById("track-button");
-        trackButton.addEventListener("click", () => {
-          const stockSymbol = document
-            .getElementById("stock-symbol")
-            .value.trim()
-            .toUpperCase();
-          if (isValidSymbol(stockSymbol)) {
-            fetchStockPrice(stockSymbol);
-          } else {
-          }
-        });
-        loadSavedPrices();
-      } else {
-        hideContent();
-        extpay.openPaymentPage();
-      }
-    })
-    .catch((err) => {});
-}
-
-function hideContent() {
-  document.getElementById('paid').style.display = 'none';
-  document.getElementById('needs-payment').style.display = 'block';
-}
-
-function showContent() {
-  document.getElementById('paid').style.display = 'block';
-  document.getElementById('needs-payment').style.display = 'none';
+  const trackButton = document.getElementById("track-button");
+  trackButton.addEventListener("click", () => {
+    const stockSymbol = document
+      .getElementById("stock-symbol")
+      .value.trim()
+      .toUpperCase();
+    if (isValidSymbol(stockSymbol)) {
+      fetchStockPrice(stockSymbol);
+    } else {
+    }
+  });
+  loadSavedPrices();
 }
 
 function isValidSymbol(symbol) {
@@ -122,6 +97,5 @@ function loadSavedPrices() {
     gridContainer.appendChild(symbolCell);
     gridContainer.appendChild(priceCell);
   }
-
   savedPricesDiv.appendChild(gridContainer);
 }

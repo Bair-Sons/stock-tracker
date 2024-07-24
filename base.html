@@ -1,28 +1,19 @@
 <html lang="en">
 
-<div id="paid">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script src="ExtPay.js"></script>
+  <script src="action.js"></script>
+</head>
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <script src="ExtPay.js"></script>
-    <script src="action.js"></script>
-  </head>
-
-  <body>
-    <h1>Stock Price Tracker</h1>
-    <input type="text" id="stock-symbol" placeholder="Enter stock symbol">
-    <button id="track-button">Track Price</button>
-    <div id="stock-price"></div>
-    <div id="saved-prices"></div>
-  </body>
-</div>
-
-<div id="needs-payment">
-  <body>
-    <h1>Please pay to move forward</h1>
-  </body>
-</div>
+<body>
+  <h1>Stock Price Tracker</h1>
+  <input type="text" id="stock-symbol" placeholder="Enter stock symbol">
+  <button id="track-button">Track Price</button>
+  <div id="stock-price"></div>
+  <div id="saved-prices"></div>
+</body>
 
 </html>

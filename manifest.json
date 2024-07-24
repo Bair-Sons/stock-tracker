@@ -2,23 +2,15 @@
   "manifest_version": 3,
   "name": "Stock Prices",
   "version": "1.0",
-  "background": {
-    "service_worker": "background.js"
-  },
   "content_scripts": [
     {
-      "matches": ["https://extensionpay.com/*"],
-      "js": ["ExtPay.js"],
-      "run_at": "document_start"
-    },
-    {
       "matches": ["http://*/", "https://*/"],
-      "js": ["ExtPay.js", "action.js"]
+      "js": ["action.js"]
     }
   ],
   "action": {
     "default_popup": "base.html",
     "default_icon": "icon.png"
   },
-  "permissions": ["activeTab", "storage"]
+  "permissions": ["storage"]
 }
