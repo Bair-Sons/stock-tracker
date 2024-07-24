@@ -1,0 +1,64 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    width: 300px; /* Adjusted to the nearest round number */
+    padding: 20px; /* Adjusted for consistency */
+    text-align: center;
+    margin: 0; /* Added to reset default margins */
+}
+
+h1 {
+    text-align: center;
+    color: #443;
+    font-size: 1.5em; /* Adjusted for better scalability */
+    margin-bottom: 20px; /* Adjusted for consistency */
+}
+
+/* Input Styles */
+input {
+    width: 80%; /* Adjusted for better consistency */
+    margin-bottom: 15px; /* Adjusted for consistency */
+    padding: 12px 16px; /* Slightly adjusted for better appearance */
+    font-size: 16px; /* Adjusted for better readability */
+    border: 1px solid #ccc; /* Adjusted for better appearance */
+    border-radius: 8px; /* Slightly larger radius for a modern look */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Updated box-shadow syntax */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Corrected transition syntax */
+}
+
+input:focus {
+    border-color: #006BFF;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+/* Button Styles */
+button {
+    width: 80%; /* Adjusted for better consistency */
+    padding: 12px 16px; /* Slightly adjusted for better appearance */
+    font-size: 16px; /* Adjusted for better readability */
+    color: #fff;
+    background-color: #006BFF;
+    border: none;
+    border-radius: 8px; /* Slightly larger radius for a modern look */
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Updated box-shadow syntax */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Corrected transition syntax */
+}
+
+button:hover {
+    background-color: #0055b3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    background-color: #002f7f;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Stock Price Styles */
+#stock-price {
+    margin-top: 20px; /* Adjusted for consistency */
+    font-size: 1em; /* Adjusted for better readability */
+    color: #006BFF;
+}
