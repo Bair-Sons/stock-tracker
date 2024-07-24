@@ -1,29 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Email Template</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
-      width: 300px;
-      height: 400px;
-      display: flex;
-      flex-direction: column;
-      margin: 0;
-      padding: 10px;
-      font-family: Arial, sans-serif;
+    h1 {
+      text-align: center;
     }
-    textarea, input {
+
+    body {
+      font-family: Arial, sans-serif;
+      width: 300px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    input {
       margin-bottom: 10px;
+      padding: 10px;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    button {
       width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      font-size: 16px;
+      text-align: center;
+      border-radius: 12px;
+      font-weight: bold;
+    }
+
+    #stock-price {
+      margin-top: 20px;
+      font-size: 18px;
+      text-align: center;
     }
   </style>
 </head>
+
 <body>
-  <h1>Email Template</h1>
-  <input type="email" id="recipients" placeholder="Recipients (comma separated)" />
-  <input type="text" id="subject" placeholder="Subject" />
-  <textarea id="body" placeholder="Email body" rows="10"></textarea>
-  <button id="send">Send</button>
+  <h1>Stock Price Tracker</h1>
+  <input type="text" id="stock-symbol" placeholder="Enter stock symbol" />
+  <button id="track-button">Track Price</button>
+  <div id="stock-price"></div>
   <script src="action.js"></script>
 </body>
+
 </html>
