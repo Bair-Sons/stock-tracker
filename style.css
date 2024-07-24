@@ -1,29 +1,27 @@
-/* General Styles */
 body {
     font-family: 'Arial', sans-serif;
-    width: 300px; /* Adjusted to the nearest round number */
-    padding: 20px; /* Adjusted for consistency */
+    width: 300px;
+    padding: 20px;
     text-align: center;
-    margin: 0; /* Added to reset default margins */
+    margin: 0;
 }
 
 h1 {
     text-align: center;
     color: #443;
-    font-size: 1.5em; /* Adjusted for better scalability */
-    margin-bottom: 20px; /* Adjusted for consistency */
+    font-size: 1.5em;
+    margin-bottom: 20px;
 }
 
-/* Input Styles */
 input {
-    width: 80%; /* Adjusted for better consistency */
-    margin-bottom: 15px; /* Adjusted for consistency */
-    padding: 12px 16px; /* Slightly adjusted for better appearance */
-    font-size: 16px; /* Adjusted for better readability */
-    border: 1px solid #ccc; /* Adjusted for better appearance */
-    border-radius: 8px; /* Slightly larger radius for a modern look */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Updated box-shadow syntax */
-    transition: border-color 0.3s, box-shadow 0.3s; /* Corrected transition syntax */
+    width: 80%;
+    margin-bottom: 15px;
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 input:focus {
@@ -32,18 +30,17 @@ input:focus {
     outline: none;
 }
 
-/* Button Styles */
 button {
-    width: 80%; /* Adjusted for better consistency */
-    padding: 12px 16px; /* Slightly adjusted for better appearance */
-    font-size: 16px; /* Adjusted for better readability */
+    width: 80%;
+    padding: 12px 16px;
+    font-size: 16px;
     color: #fff;
     background-color: #006BFF;
     border: none;
-    border-radius: 8px; /* Slightly larger radius for a modern look */
+    border-radius: 8px;
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Updated box-shadow syntax */
-    transition: background-color 0.3s, box-shadow 0.3s; /* Corrected transition syntax */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 button:hover {
@@ -56,9 +53,33 @@ button:active {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Stock Price Styles */
 #stock-price {
-    margin-top: 20px; /* Adjusted for consistency */
-    font-size: 1em; /* Adjusted for better readability */
+    margin-top: 20px;
+    font-size: 1em;
     color: #006BFF;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.grid-header {
+    font-weight: bold;
+    text-align: center;
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.grid-item {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 5px;
 }

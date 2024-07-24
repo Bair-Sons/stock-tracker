@@ -17,8 +17,8 @@ if (typeof document !== "undefined") {
   });
 
   async function fetchStockPrice(symbol) {
-    const apiKey = "YOUR_API_KEY"; // Replace with your Alpha Vantage API key
-    const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${apiKey}`;
+    const apiKey = "0EKJ7TPP7K9V0OP7"; // Replace with your Alpha Vantage API key
+    const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&${symbol}&apikey=${apiKey}`;
 
     try {
       const response = await fetch(url);
@@ -34,7 +34,6 @@ if (typeof document !== "undefined") {
         displayStockPrice(symbol, null);
       }
     } catch (error) {
-      console.error("Error fetching stock price:", error);
       displayStockPrice(
         symbol,
         null,
@@ -64,12 +63,39 @@ if (typeof document !== "undefined") {
   function loadSavedPrices() {
     const savedPricesDiv = document.getElementById("saved-prices");
     let savedPrices = JSON.parse(localStorage.getItem("savedPrices")) || {};
+
     savedPricesDiv.innerHTML = "<h2>Saved Prices:</h2>";
+
+    // Create a container for the grid
+    const gridContainer = document.createElement("div");
+    gridContainer.className = "grid-container"; // Ensure CSS class is applied for grid layout
+
+    // Create headers for the grid
+    const symbolHeader = document.createElement("div");
+    symbolHeader.className = "grid-header";
+    symbolHeader.textContent = "Symbol";
+    gridContainer.appendChild(symbolHeader);
+
+    const priceHeader = document.createElement("div");
+    priceHeader.className = "grid-header";
+    priceHeader.textContent = "Price";
+    gridContainer.appendChild(priceHeader);
+
+    // Create a grid item for each saved stock price
     for (const [symbol, price] of Object.entries(savedPrices)) {
-      const p = document.createElement("p");
-      p.textContent = `${symbol}: $${price}`;
-      savedPricesDiv.appendChild(p);
+      const symbolCell = document.createElement("div");
+      symbolCell.className = "grid-item";
+      symbolCell.textContent = symbol;
+
+      const priceCell = document.createElement("div");
+      priceCell.className = "grid-item";
+      priceCell.textContent = `$${price}`;
+
+      gridContainer.appendChild(symbolCell);
+      gridContainer.appendChild(priceCell);
     }
+
+    savedPricesDiv.appendChild(gridContainer);
   }
 
   function isValidSymbol(symbol) {
