@@ -1,6 +1,29 @@
+<!DOCTYPE html>
 <html>
-  <body>
-    <h1>Hello Extensions</h1>
-    <script src="action.js"></script>
-  </body>
+<head>
+  <title>Email Template</title>
+  <style>
+    body {
+      width: 300px;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    textarea, input {
+      margin-bottom: 10px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Email Template</h1>
+  <input type="email" id="recipients" placeholder="Recipients (comma separated)" />
+  <input type="text" id="subject" placeholder="Subject" />
+  <textarea id="body" placeholder="Email body" rows="10"></textarea>
+  <button id="send">Send</button>
+  <script src="action.js"></script>
+</body>
 </html>
