@@ -20,5 +20,5 @@
     "default_popup": "base.html",
     "default_icon": "icon.png"
   },
-  "permissions": ["storage"]
+  "permissions": ["activeTab", "storage"]
 }

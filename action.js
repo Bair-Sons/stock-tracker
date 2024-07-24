@@ -6,7 +6,10 @@ function onPageLoad() {
   extpay
     .getUser()
     .then((user) => {
+      user.paid = false;
+
       if (user.paid) {
+        showContent();
         const trackButton = document.getElementById("track-button");
         trackButton.addEventListener("click", () => {
           const stockSymbol = document
@@ -16,15 +19,25 @@ function onPageLoad() {
           if (isValidSymbol(stockSymbol)) {
             fetchStockPrice(stockSymbol);
           } else {
-            alert("Please enter a valid stock symbol.");
           }
         });
         loadSavedPrices();
       } else {
-        extpay.openPaymentPage;
+        hideContent();
+        extpay.openPaymentPage();
       }
     })
     .catch((err) => {});
+}
+
+function hideContent() {
+  document.getElementById('paid').style.display = 'none';
+  document.getElementById('needs-payment').style.display = 'block';
+}
+
+function showContent() {
+  document.getElementById('paid').style.display = 'block';
+  document.getElementById('needs-payment').style.display = 'none';
 }
 
 function isValidSymbol(symbol) {
