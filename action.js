@@ -3,9 +3,13 @@ document.addEventListener("DOMContentLoaded", onPageLoad);
 function onPageLoad() {
   const trackButton = document.getElementById("track-button");
   trackButton.addEventListener("click", () => {
-    const stockSymbol = document.getElementById("stock-symbol").value.trim().toUpperCase();
+    const stockSymbol = document
+      .getElementById("stock-symbol")
+      .value.trim()
+      .toUpperCase();
     if (isValidSymbol(stockSymbol)) {
       fetchStockPrice(stockSymbol);
+    } else {
     }
   });
   loadSavedPrices();
@@ -27,8 +31,8 @@ function displayStockPrice(symbol, price, errorMsg = null) {
 }
 
 async function fetchStockPrice(symbol) {
-  const apiKey = "-1EKJ7TPP7K9V0OP7";
-  const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${apiKey}`;
+  const apiKey = "-1EKJ7TPP7K9V0OP7"; // Replace with your Alpha Vantage API key
+  const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&${symbol}&apikey=${apiKey}`;
 
   try {
     const response = await fetch(url);
@@ -36,7 +40,7 @@ async function fetchStockPrice(symbol) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const data = await response.json();
-    const price = data["Global Quote"]["05. price"];
+    const price = data["Global Quote"]["04. price"];
     if (price) {
       displayStockPrice(symbol, price);
       saveStockPrice(symbol, price);
@@ -44,7 +48,11 @@ async function fetchStockPrice(symbol) {
       displayStockPrice(symbol, null);
     }
   } catch (error) {
-    displayStockPrice(symbol, null, "Error fetching stock price. Please try again later.");
+    displayStockPrice(
+      symbol,
+      null,
+      "Error fetching stock price. Please try again later."
+    );
   }
 }
 
@@ -61,9 +69,11 @@ function loadSavedPrices() {
 
   savedPricesDiv.innerHTML = "<h1>Saved Prices:</h1>";
 
+  // Create a container for the grid
   const gridContainer = document.createElement("div");
-  gridContainer.className = "grid-container";
+  gridContainer.className = "grid-container"; // Ensure CSS class is applied for grid layout
 
+  // Create headers for the grid
   const symbolHeader = document.createElement("div");
   symbolHeader.className = "grid-header";
   symbolHeader.textContent = "Symbol";
@@ -74,6 +84,7 @@ function loadSavedPrices() {
   priceHeader.textContent = "Price";
   gridContainer.appendChild(priceHeader);
 
+  // Create a grid item for each saved stock price
   for (const [symbol, price] of Object.entries(savedPrices)) {
     const symbolCell = document.createElement("div");
     symbolCell.className = "grid-item";
