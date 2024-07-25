@@ -84,7 +84,11 @@ function loadSavedPrices() {
   const blankPlaceholder = document.createElement("div");
   gridContainer.appendChild(blankPlaceholder);
 
-  for (const [symbol, price] of Object.entries(savedPrices)) {
+  // Sort entries by symbol
+  const sortedEntries = Object.entries(savedPrices).sort(([a], [b]) => a.localeCompare(b));
+
+  // Create grid items based on sorted entries
+  sortedEntries.forEach(([symbol, price]) => {
     const symbolCell = createGridItem(symbol);
     const priceCell = createGridItem(price);
     const editButton = createEditButton(symbol, symbolCell, priceCell);
@@ -92,7 +96,7 @@ function loadSavedPrices() {
     gridContainer.appendChild(symbolCell);
     gridContainer.appendChild(priceCell);
     gridContainer.appendChild(editButton);
-  }
+  });
 
   savedPricesDiv.appendChild(gridContainer);
 }
