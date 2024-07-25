@@ -66,7 +66,7 @@ function loadSavedPrices() {
   const savedPricesDiv = document.getElementById("saved-prices");
   let savedPrices = JSON.parse(localStorage.getItem("savedPrices")) || {};
 
-  savedPricesDiv.innerHTML = "<h1>Saved Prices:</h1>";
+  savedPricesDiv.innerHTML = "<h1>Saved Prices</h1>";
 
   const gridContainer = document.createElement("div");
   gridContainer.className = "grid-container";

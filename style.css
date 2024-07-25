@@ -1,19 +1,38 @@
+/* Define Light and Dark Theme Colors */
+:root {
+    --background-light: #f9f9f9;
+    --background-dark: #333;
+    --text-light: #333;
+    --text-dark: #f9f9f9;
+    --primary-light: #4caf50;
+    --primary-dark: #a5d6a7;
+    --border-light: #d0d0d0;
+    --border-dark: #555;
+    --grid-header-light: #e8f5e9;
+    --grid-header-dark: #424242;
+    --grid-item-light: #fafafa;
+    --grid-item-dark: #666;
+    --edit-button-light: #ff6f61;
+    --edit-button-dark: #ff6f61;
+}
+
+/* Default Light Theme Styles */
 body {
     font-family: 'Arial', sans-serif;
     width: 300px;
     padding: 20px;
     text-align: center;
     margin: 0 auto;
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: var(--background-light);
+    color: var(--text-light);
 }
 
 h1 {
     text-align: center;
-    color: #4caf50;
+    color: var(--primary-light);
     font-size: 1.75em;
     margin-bottom: 20px;
-    border-bottom: 2px solid #4caf50;
+    border-bottom: 2px solid var(--primary-light);
     padding-bottom: 10px;
 }
 
@@ -22,14 +41,14 @@ input {
     margin-bottom: 15px;
     padding: 12px 16px;
     font-size: 16px;
-    border: 1px solid #d0d0d0;
+    border: 1px solid var(--border-light);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 input:focus {
-    border-color: #4caf50;
+    border-color: var(--primary-light);
     box-shadow: 0 0 8px rgba(76, 175, 80, 0.25);
     outline: none;
 }
@@ -39,7 +58,7 @@ button {
     padding: 12px 16px;
     font-size: 16px;
     color: #fff;
-    background-color: #4caf50;
+    background-color: var(--primary-light);
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -60,7 +79,7 @@ button:active {
 #stock-price {
     margin-top: 20px;
     font-size: 1.2em;
-    color: #4caf50;
+    color: var(--primary-light);
     font-weight: bold;
 }
 
@@ -69,7 +88,7 @@ button:active {
     grid-template-columns: 1fr 1fr auto;
     gap: 10px;
     padding: 20px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--border-light);
     border-radius: 10px;
     background-color: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -78,17 +97,17 @@ button:active {
 .grid-header {
     font-weight: bold;
     text-align: center;
-    background-color: #e8f5e9;
+    background-color: var(--grid-header-light);
     padding: 10px;
-    border-bottom: 2px solid #e0e0e0;
+    border-bottom: 2px solid var(--border-light);
     border-radius: 5px 5px 0 0;
 }
 
 .grid-item {
     padding: 10px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--border-light);
     text-align: center;
-    background-color: #fafafa;
+    background-color: var(--grid-item-light);
     border-radius: 5px;
     transition: background-color 0.3s;
 }
@@ -101,7 +120,7 @@ button:active {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background-color: #ff6f61;
+    background-color: var(--edit-button-light);
     color: #fff;
     border: none;
     display: flex;
@@ -125,4 +144,56 @@ button:active {
 .edit-button::before {
     content: "✕";
     font-family: Arial, sans-serif;
+}
+
+/* Dark Theme Styles */
+body.dark-mode {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+}
+
+h1.dark-mode {
+    color: var(--primary-dark);
+    border-bottom: 2px solid var(--primary-dark);
+}
+
+input.dark-mode {
+    border: 1px solid var(--border-dark);
+    background-color: #444;
+    color: var(--text-dark);
+}
+
+input.dark-mode:focus {
+    border-color: var(--primary-dark);
+    box-shadow: 0 0 8px rgba(165, 214, 167, 0.25);
+}
+
+button.dark-mode {
+    background-color: var(--primary-dark);
+}
+
+button.dark-mode:hover {
+    background-color: #81c784;
+}
+
+button.dark-mode:active {
+    background-color: #66bb6a;
+}
+
+#stock-price.dark-mode {
+    color: var(--primary-dark);
+}
+
+.grid-container.dark-mode {
+    background-color: #555;
+    border: 1px solid var(--border-dark);
+}
+
+.grid-header.dark-mode {
+    background-color: var(--grid-header-dark);
+    color: var(--primary-dark);
+}
+
+.grid-item.dark-mode {
+    background-color: var(--grid-item-dark);
 }
