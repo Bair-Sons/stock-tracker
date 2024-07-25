@@ -1,6 +1,12 @@
 document.addEventListener("DOMContentLoaded", onPageLoad);
 
 function onPageLoad() {
+  chrome.storage.sync.get(["darkMode"], (result) => {
+    if (result.darkMode) {
+      document.body.classList.add("dark-mode");
+    }
+  });
+
   const trackButton = document.getElementById("track-button");
   trackButton.addEventListener("click", () => {
     const stockSymbol = document
@@ -85,7 +91,9 @@ function loadSavedPrices() {
   gridContainer.appendChild(blankPlaceholder);
 
   // Sort entries by symbol
-  const sortedEntries = Object.entries(savedPrices).sort(([a], [b]) => a.localeCompare(b));
+  const sortedEntries = Object.entries(savedPrices).sort(([a], [b]) =>
+    a.localeCompare(b)
+  );
 
   // Create grid items based on sorted entries
   sortedEntries.forEach(([symbol, price]) => {

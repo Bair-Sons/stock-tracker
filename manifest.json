@@ -12,5 +12,8 @@
     "default_popup": "base.html",
     "default_icon": "icon.png"
   },
-  "permissions": ["storage"]
+  "permissions": ["storage"],
+  "chrome_url_overrides": {
+    "settings": "settings.html"
+  }
 }

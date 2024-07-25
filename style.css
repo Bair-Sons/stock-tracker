@@ -1,22 +1,20 @@
-/* Define Light and Dark Theme Colors */
 :root {
     --background-light: #f9f9f9;
-    --background-dark: #333;
+    --background-dark: #121212;
     --text-light: #333;
-    --text-dark: #f9f9f9;
-    --primary-light: #4caf50;
-    --primary-dark: #a5d6a7;
+    --text-dark: #e0e0e0;
+    --primary-light: #8bc34a;
+    --primary-dark: #66bb6a; 
     --border-light: #d0d0d0;
-    --border-dark: #555;
+    --border-dark: #444;
     --grid-header-light: #e8f5e9;
-    --grid-header-dark: #424242;
+    --grid-header-dark: #1e1e1e;
     --grid-item-light: #fafafa;
-    --grid-item-dark: #666;
+    --grid-item-dark: #333;
     --edit-button-light: #ff6f61;
     --edit-button-dark: #ff6f61;
 }
 
-/* Default Light Theme Styles */
 body {
     font-family: 'Arial', sans-serif;
     width: 300px;
@@ -25,6 +23,7 @@ body {
     margin: 0 auto;
     background-color: var(--background-light);
     color: var(--text-light);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 h1 {
@@ -34,6 +33,7 @@ h1 {
     margin-bottom: 20px;
     border-bottom: 2px solid var(--primary-light);
     padding-bottom: 10px;
+    transition: color 0.3s, border-bottom 0.3s;
 }
 
 input {
@@ -44,12 +44,12 @@ input {
     border: 1px solid var(--border-light);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: border-color 0.3s, box-shadow 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
 }
 
 input:focus {
     border-color: var(--primary-light);
-    box-shadow: 0 0 8px rgba(76, 175, 80, 0.25);
+    box-shadow: 0 0 8px rgba(139, 195, 74, 0.25);
     outline: none;
 }
 
@@ -67,12 +67,12 @@ button {
 }
 
 button:hover {
-    background-color: #43a047;
+    background-color: #7cb342;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 button:active {
-    background-color: #388e3c;
+    background-color: #689f38;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -81,6 +81,7 @@ button:active {
     font-size: 1.2em;
     color: var(--primary-light);
     font-weight: bold;
+    transition: color 0.3s;
 }
 
 .grid-container {
@@ -90,8 +91,9 @@ button:active {
     padding: 20px;
     border: 1px solid var(--border-light);
     border-radius: 10px;
-    background-color: #ffffff;
+    background-color: var(--background-light);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 .grid-header {
@@ -101,6 +103,8 @@ button:active {
     padding: 10px;
     border-bottom: 2px solid var(--border-light);
     border-radius: 5px 5px 0 0;
+    color: var(--text-light);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .grid-item {
@@ -109,7 +113,8 @@ button:active {
     text-align: center;
     background-color: var(--grid-item-light);
     border-radius: 5px;
-    transition: background-color 0.3s;
+    color: var(--text-light);
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
 
 .grid-item:hover {
@@ -146,7 +151,6 @@ button:active {
     font-family: Arial, sans-serif;
 }
 
-/* Dark Theme Styles */
 body.dark-mode {
     background-color: var(--background-dark);
     color: var(--text-dark);
@@ -159,13 +163,13 @@ h1.dark-mode {
 
 input.dark-mode {
     border: 1px solid var(--border-dark);
-    background-color: #444;
+    background-color: #222;
     color: var(--text-dark);
 }
 
 input.dark-mode:focus {
     border-color: var(--primary-dark);
-    box-shadow: 0 0 8px rgba(165, 214, 167, 0.25);
+    box-shadow: 0 0 8px rgba(102, 187, 106, 0.25);
 }
 
 button.dark-mode {
@@ -173,11 +177,11 @@ button.dark-mode {
 }
 
 button.dark-mode:hover {
-    background-color: #81c784;
+    background-color: #66bb6a;
 }
 
 button.dark-mode:active {
-    background-color: #66bb6a;
+    background-color: #4caf50;
 }
 
 #stock-price.dark-mode {
@@ -185,15 +189,35 @@ button.dark-mode:active {
 }
 
 .grid-container.dark-mode {
-    background-color: #555;
+    background-color: #333;
     border: 1px solid var(--border-dark);
 }
 
 .grid-header.dark-mode {
     background-color: var(--grid-header-dark);
-    color: var(--primary-dark);
+    color: var(--text-dark);
 }
 
 .grid-item.dark-mode {
     background-color: var(--grid-item-dark);
+    color: var(--text-dark);
+}
+
+.settings-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.settings-link a {
+    font-size: 1em;
+    color: var(--primary-light);
+    text-decoration: none;
+    border-bottom: 1px solid var(--primary-light);
+    padding-bottom: 5px;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.settings-link a:hover {
+    color: #7cb342;
+    border-color: #7cb342;
 }
