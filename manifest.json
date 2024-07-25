@@ -5,7 +5,7 @@
   "content_scripts": [
     {
       "matches": ["http://*/", "https://*/"],
-      "js": ["action.js"]
+      "js": ["core.js", "buttons.js"]
     }
   ],
   "action": {
