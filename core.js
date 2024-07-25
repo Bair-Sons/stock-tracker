@@ -8,20 +8,23 @@ function onPageLoad() {
   });
 
   const trackButton = document.getElementById("track-button");
-  trackButton.addEventListener("click", () => {
-    const stockSymbol = document
-      .getElementById("stock-symbol")
-      .value.trim()
-      .toUpperCase();
-    if (isValidSymbol(stockSymbol)) {
-      fetchStockPrice(stockSymbol);
-    }
-  });
+  trackButton.addEventListener("click", handleTrackButtonClick);
+
   loadSavedPrices();
 }
 
+function handleTrackButtonClick() {
+  const stockSymbol = document
+    .getElementById("stock-symbol")
+    .value.trim()
+    .toUpperCase();
+  if (isValidSymbol(stockSymbol)) {
+    fetchStockPrice(stockSymbol);
+  }
+}
+
 function isValidSymbol(symbol) {
-  return /^[A-Z]{0,5}$/.test(symbol);
+  return /^[A-Z]{1,5}$/.test(symbol);
 }
 
 function displayStockPrice(symbol, price, errorMsg = null) {
@@ -36,7 +39,7 @@ function displayStockPrice(symbol, price, errorMsg = null) {
 }
 
 async function fetchStockPrice(symbol) {
-  const apiKey = "-1EKJ7TPP7K9V0OP7";
+  const apiKey = "1EKJ7TPP7K9V0OP7";
   const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${apiKey}`;
 
   try {
@@ -72,23 +75,16 @@ function loadSavedPrices() {
   const savedPricesDiv = document.getElementById("saved-prices");
   let savedPrices = JSON.parse(localStorage.getItem("savedPrices")) || {};
 
-  savedPricesDiv.innerHTML = "<h1>Saved Prices</h1>";
+  savedPricesDiv.innerHTML = "<h2>Saved Prices</h2>";
 
   const gridContainer = document.createElement("div");
   gridContainer.className = "grid-container";
 
-  const symbolHeader = document.createElement("div");
-  symbolHeader.className = "grid-header";
-  symbolHeader.textContent = "Symbol";
+  const symbolHeader = createGridHeader("Symbol");
+  const priceHeader = createGridHeader("Price");
   gridContainer.appendChild(symbolHeader);
-
-  const priceHeader = document.createElement("div");
-  priceHeader.className = "grid-header";
-  priceHeader.textContent = "Price";
   gridContainer.appendChild(priceHeader);
-
-  const blankPlaceholder = document.createElement("div");
-  gridContainer.appendChild(blankPlaceholder);
+  gridContainer.appendChild(document.createElement("div"));
 
   const sortedEntries = Object.entries(savedPrices).sort(([a], [b]) =>
     a.localeCompare(b)
@@ -105,6 +101,13 @@ function loadSavedPrices() {
   });
 
   savedPricesDiv.appendChild(gridContainer);
+}
+
+function createGridHeader(textContent) {
+  const header = document.createElement("div");
+  header.className = "grid-header";
+  header.textContent = textContent;
+  return header;
 }
 
 function createGridItem(textContent) {

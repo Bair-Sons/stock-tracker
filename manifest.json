@@ -2,9 +2,11 @@
   "manifest_version": 3,
   "name": "Stock Prices",
   "version": "1.0",
+  "description": "Track and display stock prices.",
+  "permissions": ["storage"],
   "content_scripts": [
     {
-      "matches": ["http://*/", "https://*/"],
+      "matches": ["<all_urls>"],
       "js": ["core.js"]
     }
   ],
@@ -12,7 +14,6 @@
     "default_popup": "base.html",
     "default_icon": "icon.png"
   },
-  "permissions": ["storage"],
   "chrome_url_overrides": {
     "settings": "settings.html"
   }

@@ -4,20 +4,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="style.css" />
-  <script src="core.js"></script>
+  <title>Stock Price Tracker</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script defer src="core.js"></script>
 </head>
 
 <body>
-  <h1>Stock Price Tracker</h1>
-  <input type="text" id="stock-symbol" placeholder="Enter stock symbol">
-  <button id="track-button">Track Price</button>
-  <div id="stock-price"></div>
-  <div id="saved-prices"></div>
+  <header>
+    <h1>Stock Price Tracker</h1>
+  </header>
 
-  <div class="settings-link">
-    <a href="settings.html">Settings</a>
-  </div>
+  <main>
+    <input type="text" id="stock-symbol" placeholder="Enter stock symbol" aria-label="Stock Symbol">
+    <button id="track-button">Track Price</button>
+    <div id="stock-price"></div>
+    <div id="saved-prices"></div>
+  </main>
+
+  <footer>
+    <div class="settings-link">
+      <a href="settings.html">Settings</a>
+    </div>
+  </footer>
 </body>
 
 </html>

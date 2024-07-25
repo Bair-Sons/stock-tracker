@@ -1,3 +1,4 @@
+/* Light Mode Styles */
 body {
     font-family: 'Arial', sans-serif;
     width: 300px;
@@ -9,10 +10,10 @@ body {
 }
 
 h1 {
-    color: #81c784; /* Darker pastel green */
+    color: #81c784;
     font-size: 1.75em;
     margin-bottom: 20px;
-    border-bottom: 2px solid #81c784; /* Darker pastel green */
+    border-bottom: 2px solid #81c784;
     padding-bottom: 10px;
 }
 
@@ -22,14 +23,35 @@ h1 {
 
 .nav-link a {
     font-size: 1em;
-    color: #81c784; /* Darker pastel green */
+    color: #81c784;
     text-decoration: none;
-    border-bottom: 1px solid #81c784; /* Darker pastel green */
+    border-bottom: 1px solid #81c784;
     padding-bottom: 5px;
     transition: color 0.3s, border-color 0.3s;
 }
 
 .nav-link a:hover {
-    color: #66bb6a; /* Slightly darker pastel green */
-    border-color: #66bb6a; /* Slightly darker pastel green */
+    color: #66bb6a;
+    border-color: #66bb6a;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+h1.dark-mode {
+    color: #a5d6a7;
+    border-bottom: 2px solid #a5d6a7;
+}
+
+.nav-link a.dark-mode {
+    color: #a5d6a7;
+    border-bottom: 1px solid #a5d6a7;
+}
+
+.nav-link a.dark-mode:hover {
+    color: #81c784;
+    border-color: #81c784;
 }

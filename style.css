@@ -3,8 +3,8 @@
     --background-dark: #121212;
     --text-light: #333;
     --text-dark: #e0e0e0;
-    --primary-light: #81c784; /* Darker pastel green */
-    --primary-dark: #66bb6a; /* Slightly darker pastel green */
+    --primary-light: #81c784;
+    --primary-dark: #66bb6a;
     --border-light: #d0d0d0;
     --border-dark: #444;
     --grid-header-light: #e8f5e9;
@@ -49,7 +49,7 @@ input {
 
 input:focus {
     border-color: var(--primary-light);
-    box-shadow: 0 0 8px rgba(129, 199, 132, 0.25); /* Adjusted for darker pastel green */
+    box-shadow: 0 0 8px rgba(129, 199, 132, 0.25);
     outline: none;
 }
 
@@ -67,12 +67,12 @@ button {
 }
 
 button:hover {
-    background-color: #66bb6a; /* Slightly darker pastel green */
+    background-color: var(--primary-dark);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 button:active {
-    background-color: #4caf50; /* Pastel green */
+    background-color: #4caf50;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -169,7 +169,7 @@ input.dark-mode {
 
 input.dark-mode:focus {
     border-color: var(--primary-dark);
-    box-shadow: 0 0 8px rgba(129, 199, 132, 0.25); /* Adjusted for darker pastel green */
+    box-shadow: 0 0 8px rgba(129, 199, 132, 0.25);
 }
 
 button.dark-mode {
@@ -177,11 +177,11 @@ button.dark-mode {
 }
 
 button.dark-mode:hover {
-    background-color: #66bb6a; /* Slightly darker pastel green */
+    background-color: var(--primary-dark);
 }
 
 button.dark-mode:active {
-    background-color: #4caf50; /* Pastel green */
+    background-color: #4caf50;
 }
 
 #stock-price.dark-mode {
@@ -189,7 +189,7 @@ button.dark-mode:active {
 }
 
 .grid-container.dark-mode {
-    background-color: #333;
+    background-color: var(--grid-item-dark);
     border: 1px solid var(--border-dark);
 }
 
@@ -218,6 +218,6 @@ button.dark-mode:active {
 }
 
 .settings-link a:hover {
-    color: #66bb6a; /* Slightly darker pastel green */
-    border-color: #66bb6a; /* Slightly darker pastel green */
+    color: var(--primary-dark);
+    border-color: var(--primary-dark);
 }
