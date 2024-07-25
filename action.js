@@ -3,7 +3,10 @@ document.addEventListener("DOMContentLoaded", onPageLoad);
 function onPageLoad() {
   const trackButton = document.getElementById("track-button");
   trackButton.addEventListener("click", () => {
-    const stockSymbol = document.getElementById("stock-symbol").value.trim().toUpperCase();
+    const stockSymbol = document
+      .getElementById("stock-symbol")
+      .value.trim()
+      .toUpperCase();
     if (isValidSymbol(stockSymbol)) {
       fetchStockPrice(stockSymbol);
     }
@@ -44,7 +47,11 @@ async function fetchStockPrice(symbol) {
       displayStockPrice(symbol, null);
     }
   } catch (error) {
-    displayStockPrice(symbol, null, "Error fetching stock price. Please try again later.");
+    displayStockPrice(
+      symbol,
+      null,
+      "Error fetching stock price. Please try again later."
+    );
   }
 }
 
@@ -74,17 +81,43 @@ function loadSavedPrices() {
   priceHeader.textContent = "Price";
   gridContainer.appendChild(priceHeader);
 
-  for (const [symbol, price] of Object.entries(savedPrices)) {
-    const symbolCell = document.createElement("div");
-    symbolCell.className = "grid-item";
-    symbolCell.textContent = symbol;
+  const blankPlaceholder = document.createElement("div");
+  gridContainer.appendChild(blankPlaceholder);
 
-    const priceCell = document.createElement("div");
-    priceCell.className = "grid-item";
-    priceCell.textContent = `$${price}`;
+  for (const [symbol, price] of Object.entries(savedPrices)) {
+    const symbolCell = createGridItem(symbol);
+    const priceCell = createGridItem(price);
+    const editButton = createEditButton(symbol, symbolCell, priceCell);
 
     gridContainer.appendChild(symbolCell);
     gridContainer.appendChild(priceCell);
+    gridContainer.appendChild(editButton);
   }
+
   savedPricesDiv.appendChild(gridContainer);
+}
+
+function createGridItem(textContent) {
+  const item = document.createElement("div");
+  item.className = "grid-item";
+  item.textContent = textContent;
+  return item;
+}
+
+function createEditButton(symbol, symbolCell, priceCell) {
+  const editButton = document.createElement("button");
+  editButton.className = "edit-button";
+  editButton.addEventListener("click", () =>
+    removeStock(symbol, symbolCell, priceCell, editButton)
+  );
+  return editButton;
+}
+
+function removeStock(symbol, symbolCell, priceCell, editButton) {
+  let savedPrices = JSON.parse(localStorage.getItem("savedPrices")) || {};
+  delete savedPrices[symbol];
+  localStorage.setItem("savedPrices", JSON.stringify(savedPrices));
+  symbolCell.remove();
+  priceCell.remove();
+  editButton.remove();
 }
