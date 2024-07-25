@@ -90,12 +90,10 @@ function loadSavedPrices() {
   const blankPlaceholder = document.createElement("div");
   gridContainer.appendChild(blankPlaceholder);
 
-  // Sort entries by symbol
   const sortedEntries = Object.entries(savedPrices).sort(([a], [b]) =>
     a.localeCompare(b)
   );
 
-  // Create grid items based on sorted entries
   sortedEntries.forEach(([symbol, price]) => {
     const symbolCell = createGridItem(symbol);
     const priceCell = createGridItem(price);
