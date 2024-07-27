@@ -3,7 +3,6 @@
   "name": "Stock Prices",
   "version": "1.0",
   "description": "Track and display stock prices.",
-  "permissions": ["storage"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],

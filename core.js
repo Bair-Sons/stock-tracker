@@ -1,11 +1,9 @@
 document.addEventListener("DOMContentLoaded", onPageLoad);
 
 function onPageLoad() {
-  chrome.storage.sync.get(["darkMode"], (result) => {
-    if (result.darkMode) {
-      document.body.classList.add("dark-mode");
-    }
-  });
+  if (localStorage.getItem("dark-mode") === "enabled") {
+    document.body.classList.add("dark-mode");
+  }
 
   const trackButton = document.getElementById("track-button");
   trackButton.addEventListener("click", handleTrackButtonClick);

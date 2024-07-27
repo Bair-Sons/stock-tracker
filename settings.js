@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const updateDarkModeSetting = (enabled) => {
     localStorage.setItem("dark-mode", enabled ? "enabled" : "disabled");
-    chrome.storage.sync.set({ darkMode: enabled });
   };
 
   if (localStorage.getItem("dark-mode") === "enabled") {
@@ -19,9 +18,5 @@ document.addEventListener("DOMContentLoaded", () => {
     const isEnabled = darkModeToggle.checked;
     applyDarkMode(isEnabled);
     updateDarkModeSetting(isEnabled);
-  });
-
-  chrome.storage.sync.get("darkMode", (result) => {
-    darkModeToggle.checked = !!result.darkMode;
   });
 });
