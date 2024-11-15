@@ -37,7 +37,7 @@ function displayStockPrice(symbol, price, errorMsg = null) {
 }
 
 async function fetchStockPrice(symbol) {
-  const apiKey = "1EKJ7TPP7K9V0OP7";
+  const apiKey = process.env.API_KEY;
   const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${apiKey}`;
 
   try {
@@ -54,13 +54,10 @@ async function fetchStockPrice(symbol) {
       displayStockPrice(symbol, null);
     }
   } catch (error) {
-    displayStockPrice(
-      symbol,
-      null,
-      "Error fetching stock price. Please try again later."
-    );
+    displayStockPrice(symbol, null, "Error fetching stock price. Please try again later.");
   }
 }
+
 
 function saveStockPrice(symbol, price) {
   let savedPrices = JSON.parse(localStorage.getItem("savedPrices")) || {};
